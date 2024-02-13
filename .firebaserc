@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "chat-app-8bec4"
+  },
+  "targets": {
+    "chat-app-8bec4": {
+      "hosting": {
+        "chat-app-8bec4": [
+          "chat-app-8bec4"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

@@ -1,0 +1,38 @@
+<mat-toolbar class="theme">
+  <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button> -->
+  <span>Chat App</span>
+  <span class="example-spacer"></span>
+
+  <button *ngIf="!user.email" type="submit" mat-stroked-button class="default-btn" (click)="gotoLogin()">Login</button>
+
+
+
+  <!-- <mat-form-field>
+      <mat-label>Asad</mat-label>
+      <mat-select [(value)]="selected">
+        <mat-option value="logout">Logout</mat-option>
+      </mat-select>
+    </mat-form-field> -->
+
+  <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button> -->
+
+
+  <ng-container *ngIf="user.email">
+
+    <div class="img-container">
+      <img *ngIf="!user.photoURL" src="assets/dummy-profile.png" alt="">
+      <img *ngIf="user.photoURL" [src]="user.photoURL" alt="">
+    </div>
+    <h5 class="f1">{{user.displayName}}</h5>
+    <button mat-button [matMenuTriggerFor]="menu"> <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
+  </ng-container>
+
+</mat-toolbar>

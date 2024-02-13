@@ -1,0 +1,141 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$chat-app-primary: mat.define-palette(mat.$indigo-palette);
+$chat-app-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$chat-app-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$chat-app-theme: mat.define-light-theme((color: (primary: $chat-app-primary,
+        accent: $chat-app-accent,
+        warn: $chat-app-warn,
+      )));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($chat-app-theme);
+/* You can add global styles to this file, and also import other style files */
+// @use  './mixins' as *;
+@import './variables';
+@import './mixins';
+@import './modal';
+
+
+html,
+body {
+  height: 100%;
+  // background: #f8f8f8;
+  background: var(--heading-color);
+  font-family: var(--common-font);
+  margin: 0;
+  @include customScrollbar();
+}
+
+.theme {
+  background-color: var(--theme-color);
+  color: var(--heading-color);
+}
+
+// .mat-toolbar{
+//   background: var(--theme-color);
+
+// }
+
+.img-container {
+  width: 40px;
+  margin-right: 5px;
+  overflow: hidden;
+  height: 40px;
+  border-radius: 50%;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    vertical-align: middle;
+  }
+}
+
+.f1 {
+  font-size: 16px !important;
+  color: var(--heading-color);
+
+}
+
+.f2 {
+  font-size: 16px !important;
+  color: #616161;
+}
+
+.error {
+  color: #f44938;
+}
+
+.default-color {
+  color: var(--secondary-color);
+}
+
+.m-0{
+  margin: 0;
+}
+
+.default-btn {
+  color: white;
+  background: #efb763;
+  width: 5em;
+  &--1{
+    color: white;
+    background: #efb763;
+    width: 10em;
+  }
+
+  &--2{
+    color: white;
+    background: #efb763;
+    width: 15em;
+  }
+  /* border-radius: 20px; */
+}
+
+// .mat-card {
+//   // margin-top: 2em;
+//   // width: 20%;
+
+//   background-color: var(--secondary-color);
+
+// }
+
+.date {
+  margin-left: 10px;
+  width: 47px;
+  font-size: 11px;
+}
+
+.chatlist {
+  :hover {
+    background-color: white;
+    border-radius: 3px;
+    color: gray;
+    cursor: pointer;
+  }
+
+}
+
+// font-family: Roboto, "Helvetica Neue", sans-serif, var(common-font) !important;

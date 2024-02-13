@@ -1,0 +1,15 @@
+<div *ngIf="message;">
+    <h1>{{ message.notification.title }}</h1>
+    <h2>{{ message.notification.body }}</h2>
+  </div>
+  <div *ngIf="!message;">
+    No Message Arrived
+  </div>
+  
+<div id="app"  *ngIf="showScreen">
+    <app-navbar [user]='user'> </app-navbar>
+    <div class="main">
+        <router-outlet> </router-outlet>
+    </div>
+    <app-footer></app-footer>
+</div>
