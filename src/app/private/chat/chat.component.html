@@ -1,0 +1,29 @@
+<mat-card>
+    <div class="top_section">
+        <img *ngIf="!chatWith.photoURL" src="assets/dummy-profile.png" alt="">
+        <img *ngIf="chatWith.photoURL" [src]="chatWith.photoURL" alt="">
+        <h5 class="f2">{{chatWith.displayName}}</h5>
+    </div>
+
+    <mat-card class="message-list customScroller">
+        <div [class.send]="item.senderId==currentUser.uid" [class.receive]="item.senderId==chatWith.uid"
+            *ngFor="let item of chatMessages ;let last=last" [class.lastMessage]="last">
+            <p>{{item.text}}</p>
+        </div>
+    </mat-card>
+
+
+
+    <mat-card class="send_input">
+        <mat-form-field class="example-full-width">
+            <mat-label>Enter Message</mat-label>
+            <input type="text" (keydown)="sendMessage($event)" [(ngModel)]="message" placeholder="message"
+                aria-label="Number" matInput>
+        </mat-form-field>
+        <mat-icon (click)="sendMessage()">send</mat-icon>
+    </mat-card>
+    <!-- <div class="chat">
+
+</div> -->
+
+</mat-card>

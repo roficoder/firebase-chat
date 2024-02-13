@@ -1,0 +1,40 @@
+@import './mixins';
+
+.cdk-overlay-pane{
+  .mat-dialog-container{
+    padding: 0 !important;
+    height: 700px !important;width: 840px !important;max-width: 80vw !important;max-height: 70vh !important;border-radius: 12px !important;
+    .modal{
+      overflow: hidden;display: flex;flex-flow: column;height: 700px;width: 840px ;max-width: 80vw;max-height: 70vh;
+      &--header,&--body,&--footer{
+        padding: 1rem;
+      }
+      &--header{
+        h6{
+          @include fontSize(18px);font-weight: 500;color: var(--heading-color);user-select:none;margin: 0;
+          span{
+            display: block;font-weight: 400; @include fontSize(14px);color: var(--secondary-color);margin-top: 5px;
+          }
+        }
+      }
+      &--body{
+        flex-grow: 1;overflow-y: auto;
+      }
+      &--footer{
+        display: flex;justify-content: flex-end;align-items: center;
+        .btn{
+          margin: 0;
+          +.btn{margin-left: 10px;}
+        }
+      }
+    }
+  }
+  &.alertDialog{
+    mat-dialog-container{
+      max-width: 340px !important;padding: 15px !important;max-height: 170px !important;overflow: hidden;
+      .mat-dialog-actions{
+        justify-content: flex-end;
+      }
+    }
+  }
+}

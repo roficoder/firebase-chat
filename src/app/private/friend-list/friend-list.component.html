@@ -1,0 +1,37 @@
+<div class="grid">
+    <div class="item01">
+        <mat-card>
+            <form class="example-form">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Search User</mat-label>
+                    <input type="text" placeholder="Enter Name" aria-label="Number" name="name" matInput
+                        [(ngModel)]="value" [matAutocomplete]="auto">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option *ngFor="let option of allUsers " [value]="option.displayName"
+                            (click)="setToChatList(option.uid,option.photoURL)">
+                            {{option.displayName}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </form>
+
+
+            <mat-list role="list">
+                <mat-list-item role="listitem" class="chatlist" *ngFor="let item of chatList" (click)="chat(item)">
+                    <div class="img-container">
+                        <img *ngIf="!item.photoURL" src="assets/dummy-profile.png" alt="">
+                        <img *ngIf="item.photoURL" [src]="item.photoURL" alt="">
+                    </div>
+                    <h5 class="f2"> {{item.displayName}}</h5>
+                    <span class="date">{{item?.lastMessage?.toDate() | date:'dd/MM/YYYY hh:mm a'}}</span>
+                </mat-list-item>
+            </mat-list>
+
+        </mat-card>
+
+    </div>
+    <div class="item02">
+
+        <app-chat *ngIf="showChat" [chatWith]="chatWith" [currentUser]="user"></app-chat>
+    </div>
+</div>

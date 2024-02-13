@@ -1,0 +1,15 @@
+.auth{
+  height: 100%;width: 100%;overflow: hidden;background: #efe3ab;
+  &--form{
+    background: #f8f8f8;position: absolute;top: 0;right: 0;width: 40%;bottom: 0;border-radius: 22px 0 0 22px;padding: 10px;display: flex;align-items: center;justify-content: center;
+    // @include customScrollbar();
+    .form{
+      width: 80%;max-width: 350px;
+    }
+    .notes{
+      display: flex;align-items: center;justify-content: space-between;margin-top: 25px;
+      .btn.btn--textbtn{margin-left: auto;}
+    }
+  }
+}
+

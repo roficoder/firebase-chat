@@ -1,0 +1,12 @@
+@mixin customScrollbar() {
+  &::-webkit-scrollbar {width: 6px;}
+  &::-webkit-scrollbar-thumb {background-color: var(--theme-color);border-radius: 22px;}
+}
+
+.customScroller{
+  @include customScrollbar();
+}
+
+@mixin fontSize($val) {
+  font-size: $val + 2px;
+}
